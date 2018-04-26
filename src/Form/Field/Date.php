@@ -5,12 +5,13 @@ namespace Encore\Admin\Form\Field;
 class Date extends Text
 {
     protected static $css = [
-        '/vendor/laravel-admin/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css',
+        '/vendor/laravel-admin/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datepicker.min.css',
     ];
 
     protected static $js = [
         '/vendor/laravel-admin/moment/min/moment-with-locales.min.js',
-        '/vendor/laravel-admin/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
+        '/vendor/laravel-admin/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datepicker.min.js',
+        '/vendor/laravel-admin/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datepicker.fa.min.js',
     ];
 
     protected $format = 'YYYY-MM-DD';
@@ -35,9 +36,8 @@ class Date extends Text
     {
         $this->options['format'] = $this->format;
         $this->options['locale'] = config('app.locale');
-        $this->options['allowInputToggle'] = true;
 
-        $this->script = "$('{$this->getElementClassSelector()}').parent().datetimepicker(".json_encode($this->options).');';
+        $this->script = "$('{$this->getElementClassSelector()}').datepicker(".json_encode($this->options).');';
 
         $this->prepend('<i class="fa fa-calendar fa-fw"></i>')
             ->defaultAttribute('style', 'width: 110px');
