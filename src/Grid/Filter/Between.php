@@ -111,8 +111,8 @@ class Between extends AbstractFilter
         $endOptions = json_encode($options + ['useCurrent' => false]);
 
         $script = <<<EOT
-            $('#{$this->id['start']}').datetimepicker($startOptions);
-            $('#{$this->id['end']}').datetimepicker($endOptions);
+            $('#{$this->id['start']}').datepicker($startOptions);
+            $('#{$this->id['end']}').datepicker($endOptions);
             $("#{$this->id['start']}").on("dp.change", function (e) {
                 $('#{$this->id['end']}').data("DateTimePicker").minDate(e.date);
             });
